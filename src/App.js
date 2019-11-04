@@ -47,8 +47,8 @@ class App extends Component {
 
   clearCompleted = () => {
     console.log("clearCompleted");
-    this.ListeningStateChangedEvent({
-      todos: this.state.groceries.filter(todo => {
+    this.setState({
+      todos: this.state.todos.filter(todo => {
         return !todo.completed;
       })
     });
