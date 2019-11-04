@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import TodoForm from "./components/TodoComponents/TodoForm";
 import TodoList from "./components/TodoComponents/TodoList";
+import "./styles.css";
 
 const data = [
   {
     task: "Read the TK",
     id: 0,
-    completed: false
+    completed: true
   },
   {
     task: "Complete Todo Project",
@@ -24,14 +25,15 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      todos: data,
-      otherState: "this other state"
+      todos: data
     };
   }
 
-  toggleCompleted(todoId) {
+  toggleCompleted = todoId => {
+    console.log("toggleCompleted: ", todoId);
+
     this.setState({
-      todos: this.state.todos(todo => {
+      todos: this.state.todos.map(todo => {
         if (todo.id === todoId) {
           return {
             ...todo,
@@ -41,7 +43,7 @@ class App extends Component {
         return todo;
       })
     });
-  }
+  };
 
   clearCompleted = () => {
     console.log("clearCompleted");
