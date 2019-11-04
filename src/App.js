@@ -29,6 +29,43 @@ class App extends Component {
     };
   }
 
+  toggleCompleted(todoId) {
+    this.setState({
+      todos: this.state.todos(todo => {
+        if (todo.id === todoId) {
+          return {
+            ...todo,
+            completed: !todo.completed
+          };
+        }
+        return todo;
+      })
+    });
+  }
+
+  clearCompleted = () => {
+    console.log("clearCompleted");
+    this.ListeningStateChangedEvent({
+      todos: this.state.groceries.filter(todo => {
+        return !todo.completed;
+      })
+    });
+  };
+
+  addTodo = newTodo => {
+    console.log("add item: ", newTodo);
+    this.setState({
+      todos: [
+        ...this.state.todos,
+        {
+          task: newTodo,
+          id: Date.now(),
+          completed: false
+        }
+      ]
+    });
+  };
+
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
@@ -38,9 +75,13 @@ class App extends Component {
       <div>
         <div className="header">
           <h2>Todo List</h2>
-          <TodoForm />
+          <TodoForm addTodo={this.addTodo} />
         </div>
-        <TodoList todos={data} />
+        <TodoList
+          todos={this.state.todos}
+          toggleCompleted={this.toggleCompleted}
+          clearCompleted={this.clearCompleted}
+        />
       </div>
     );
   }

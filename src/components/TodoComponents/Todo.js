@@ -1,17 +1,11 @@
-[
-  {
-    task: "Read the TK",
-    id: 0,
-    completed: false
-  },
-  {
-    task: "Complete Todo Project",
-    id: 1,
-    completed: false
-  },
-  {
-    task: "Refactor last Spring",
-    id: 2,
-    completed: false
-  }
-];
+import React from "react";
+
+const Todo = props => {
+  return (
+    <div>
+      <p>{props.task}</p>
+    </div>
+  );
+};
+
+export default Todo;
