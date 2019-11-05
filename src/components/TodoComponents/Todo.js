@@ -1,4 +1,7 @@
 import React from "react";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemText from "@material-ui/core/ListItemText";
 
 const Todo = props => {
   console.log(props);
@@ -8,12 +11,14 @@ const Todo = props => {
   };
 
   return (
-    <div
+    <List
       onClick={handleClick}
       className={`todos${props.completed ? " completed" : ""}`}
     >
-      <p>{props.task}</p>
-    </div>
+      <ListItem center className="todo">
+        <ListItemText primary={props.task} />
+      </ListItem>
+    </List>
   );
 };
 

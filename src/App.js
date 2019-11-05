@@ -74,7 +74,7 @@ class App extends Component {
   render() {
     console.log("...rendering");
     return (
-      <div>
+      <div className="wrapper">
         <div className="header">
           <h2>Todo List</h2>
           <TodoForm addTodo={this.addTodo} />
