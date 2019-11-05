@@ -1,0 +1,19 @@
+.wrapper {
+  text-align: center;
+}
+
+.todo {
+  width: 40%;
+  text-align: center;
+  margin: 4px 0;
+  padding-left: 8px;
+  cursor: pointer;
+}
+
+.todo-list {
+  text-align: center;
+}
+
+.completed {
+  text-decoration: line-through;
+}
